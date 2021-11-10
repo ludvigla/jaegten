@@ -1,0 +1,33 @@
+html, body {
+    width: 100%;
+    margin: 0px;
+}
+
+body {
+    background-color: #F3F3F3;
+    background-color: white;
+    font-family: Arial;
+}
+
+#wrap {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+#map {
+    height: 100%;
+}
+
+#content {
+    margin: auto;
+}
+
+#myform {
+    width: 200px;
+    background-color: rgba(1, 0, 0, 0, 0.5);
+}
+
+.header {
+    text-align: center;
+}

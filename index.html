@@ -1,0 +1,30 @@
+<!-- <!DOCTYPE html> -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Snow demo</title>
+    <link rel="stylesheet" type="text/css" href="./css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css"/>
+    <link href="./css/bootstrap-colorpicker.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""/>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery.validate.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="map">
+        </div>
+        <div id="overlay" style="position:absolute; top:100px; left:10px; background-color:rgba(0, 0, 0, 0); width:100px; height:100px; z-index: 1000">
+            <input id="field1" type="text" name="field1" placeholder="ledtråd 1"/>
+            <br/>
+            <input id="field2" type="text" name="field2" placeholder="ledtråd 2"/>
+            <button class="btn" id="tstbtn">Svara</button>
+        </div>
+    </div>
+    <script src="./js/bundle.js"></script>
+</body>
+</html>
