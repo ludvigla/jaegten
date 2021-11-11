@@ -20,7 +20,7 @@ body {
 }
 
 #wrap {
-    visibility: none;
+    visibility: hidden;
 }
 
 #content {
