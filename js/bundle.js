@@ -12,7 +12,7 @@ document.onreadystatechange = function(e)
 		} if (getMobileOperatingSystem() == "iOS") {
 			show();
 		} else {
-			show();
+			show_wrap();
 		}
     }
 };
@@ -23,6 +23,12 @@ function show () {
 }
 function hide () {
 	document.getElementById("spinner").classList.remove("show");
+}
+
+// (A) SHOW wrap
+function show_wrap () {
+	const element = document.getElementById("wrap");	// Get element
+	element.style.visibility = "visible";
 }
 
 var snowspeed = 100;
@@ -38,7 +44,7 @@ center = [59.301118616523745, 18.00657106470706],
 lmap = new L.Map('map', {
   layers: [osm],
   center: center,
-  minZoom: 12,
+  minZoom: 11,
   zoom: 13,
   maxZoom: 16,
   zoomAnimation: true
