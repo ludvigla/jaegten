@@ -5,10 +5,10 @@ require("../../src/L.Snow");
 
 window.onload = function(e){ 
     if (getMobileOperatingSystem() == "Android") {
-		alert("Something went badly wrong!");
+		alert("Funkar inte på android. Hämta datorn din latkorv!");
 		history.back();
 	} if (getMobileOperatingSystem() == "iOS") {
-		alert("Something went badly wrong!");
+		alert("Funkar inte på iOS. Hämta datorn din latkorv!");
 		history.back();
 	}
 }
