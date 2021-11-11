@@ -3,18 +3,24 @@
 
 require("../../src/L.Snow");
 
-// Wait for window load
-$(window).load(function() {
-	// Animate loader off screen
-	$(".se-pre-con").fadeOut("slow");;
-	if (getMobileOperatingSystem() == "Android") {
-		alert("Funkar inte på android. Hämta datorn din latkorv!");
-		history.back();
-	} if (getMobileOperatingSystem() == "iOS") {
-		alert("Funkar inte på iOS. Hämta datorn din latkorv!");
-		history.back();
-	}
-});
+window.addEventListener('load', 
+	function(e){ 
+		if (getMobileOperatingSystem() == "Android") {
+			show();
+			history.back();
+		} if (getMobileOperatingSystem() == "iOS") {
+			show();
+			history.back();
+		}
+}, false);
+
+// (A) SHOW & HIDE SPINNER
+function show () {
+	document.getElementById("spinner").classList.add("show");
+  }
+  function hide () {
+	document.getElementById("spinner").classList.remove("show");
+  }
 
 var snowspeed = 100;
 var flakesize = 10;
