@@ -6,9 +6,7 @@ require("../../src/L.Snow");
 window.onload = function(e){ 
     if (getMobileOperatingSystem() == "Android") {
 		throw new Error("Something went badly wrong!");
-		window.stop()
 	} if (getMobileOperatingSystem() == "iOS") {
-		window.stop()
 		throw new Error("Something went badly wrong!");
 	}
 }
