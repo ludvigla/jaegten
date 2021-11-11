@@ -3,7 +3,7 @@
 
 require("../../src/L.Snow");
 
-window.addEventListener('load', 
+window.addEventListener('DOMContentLoaded', 
 	function(e){ 
 		if (getMobileOperatingSystem() == "Android") {
 			show();
@@ -17,10 +17,10 @@ window.addEventListener('load',
 // (A) SHOW & HIDE SPINNER
 function show () {
 	document.getElementById("spinner").classList.add("show");
-  }
-  function hide () {
+}
+function hide () {
 	document.getElementById("spinner").classList.remove("show");
-  }
+}
 
 var snowspeed = 100;
 var flakesize = 10;
