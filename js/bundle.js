@@ -5,11 +5,11 @@ require("../../src/L.Snow");
 
 window.onload = function(e){ 
     if (getMobileOperatingSystem() == "Android") {
-		alert("Device not supported")
+		throw new Error("Something went badly wrong!");
 		window.stop()
 	} if (getMobileOperatingSystem() == "iOS") {
 		window.stop()
-		alert("Device not supported")
+		throw new Error("Something went badly wrong!");
 	}
 }
 
