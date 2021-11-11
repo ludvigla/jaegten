@@ -16,17 +16,6 @@ $(window).load(function() {
 	}
 });
 
-window.addEventListener('load', 
-	function(e){ 
-		if (getMobileOperatingSystem() == "Android") {
-			alert("Funkar inte på android. Hämta datorn din latkorv!");
-			history.back();
-		} if (getMobileOperatingSystem() == "iOS") {
-			alert("Funkar inte på iOS. Hämta datorn din latkorv!");
-			history.back();
-		}
-}, false);
-
 var snowspeed = 100;
 var flakesize = 10;
 var snowdensity = 1;
