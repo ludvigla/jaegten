@@ -32,23 +32,23 @@ body {
     position: fixed;
     top: 0; left: 0; z-index: 9999;
     width: 100vw; height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 1);
     transition: opacity 0.2s;
-  }
-   
-  /* (B) CENTER LOADING SPINNER */
-  #spinner img {
+}
+
+/* (B) CENTER LOADING SPINNER */
+#spinner img {
     position: absolute;
     top: 0; left: 0;
-    width: 100vw; height: 100vh;
-  }
-   
-  /* (C) SHOW & HIDE */
-  #spinner {
+    width: 100vw; height: auto;
+}
+
+/* (C) SHOW & HIDE */
+#spinner {
     visibility: hidden;
     opacity: 0;
-  }
-  #spinner.show {
+}
+#spinner.show {
     visibility: visible;
     opacity: 1;
-  }
+}
