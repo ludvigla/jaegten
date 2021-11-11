@@ -23,11 +23,32 @@ body {
     margin: auto;
 }
 
-#myform {
-    width: 200px;
-    background-color: rgba(1, 0, 0, 0, 0.5);
-}
-
 .header {
     text-align: center;
 }
+
+/* (A) FULL SCREEN WRAPPER */
+#spinner {
+    position: fixed;
+    top: 0; left: 0; z-index: 9999;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 0.2s;
+  }
+   
+  /* (B) CENTER LOADING SPINNER */
+  #spinner img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+  }
+   
+  /* (C) SHOW & HIDE */
+  #spinner {
+    visibility: hidden;
+    opacity: 0;
+  }
+  #spinner.show {
+    visibility: visible;
+    opacity: 1;
+  }

@@ -4,13 +4,21 @@
 require("../../src/L.Snow");
 
 window.onload = function(e){ 
+	show ()
     if (getMobileOperatingSystem() == "Android") {
 		alert("Funkar inte på android. Hämta datorn din latkorv!");
 		history.back();
 	} if (getMobileOperatingSystem() == "iOS") {
 		alert("Funkar inte på iOS. Hämta datorn din latkorv!");
 		history.back();
-	}
+	} 
+}
+
+function show () {
+	document.getElementById("spinner").classList.add("show");
+}
+function hide () {
+	document.getElementById("spinner").classList.remove("show");
 }
 
 var snowspeed = 100;
