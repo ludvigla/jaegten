@@ -12,10 +12,7 @@ window.addEventListener('load',
 		} if (getMobileOperatingSystem() == "iOS") {
 			alert("Funkar inte på iOS. Hämta datorn din latkorv!");
 			history.back();
-		} else {
-			hide()
-		}
-		window.snow = snow;
+		} 
 }, false);
 
 function show () {
@@ -61,6 +58,7 @@ points = [
 	]
 ],
 snow = L.snow(points, options).addTo(lmap);
+window.snow = snow;
 
 function functSubmit(event) {
   var msg1 = document.getElementById("field1").value;
