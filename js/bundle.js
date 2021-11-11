@@ -3,6 +3,16 @@
 
 require("../../src/L.Snow");
 
+window.onload = function(e){ 
+    if (getMobileOperatingSystem() == "Android") {
+		alert("Device not supported")
+		window.stop()
+	} if (getMobileOperatingSystem() == "iOS") {
+		window.stop()
+		alert("Device not supported")
+	}
+}
+
 var snowspeed = 100;
 var flakesize = 10;
 var snowdensity = 1;
@@ -12,8 +22,8 @@ var osm = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canv
 	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
 	maxZoom: 16
 }),
-    center = [59.301118616523745, 18.00657106470706],
-    lmap = new L.Map('map', {
+center = [59.301118616523745, 18.00657106470706],
+lmap = new L.Map('map', {
   layers: [osm],
   center: center,
   minZoom: 12,
@@ -71,6 +81,27 @@ if (document.getElementById("field1").disabled & document.getElementById("field2
 
 const btn = document.getElementById("tstbtn");
 btn.addEventListener('click', functSubmit);
+
+/**
+ * Determine the mobile operating system.
+ * This function returns one of 'iOS', 'Android', 'Windows Phone', or 'unknown'.
+ *
+ * @returns {String}
+ */
+ function getMobileOperatingSystem() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/android/i.test(userAgent)) {
+        return "Android";
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "iOS";
+    }
+
+    return "unknown";
+}
 
 
 },{"../../src/L.Snow":4}],2:[function(require,module,exports){
