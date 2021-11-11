@@ -11,9 +11,7 @@ document.onreadystatechange = function(e)
 			show();
 		} if (getMobileOperatingSystem() == "iOS") {
 			show();
-		} else {
-			show_wrap();
-		}
+		} 
     }
 };
 
