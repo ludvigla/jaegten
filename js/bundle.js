@@ -7,6 +7,13 @@ require("../../src/L.Snow");
 $(window).load(function() {
 	// Animate loader off screen
 	$(".se-pre-con").fadeOut("slow");;
+	if (getMobileOperatingSystem() == "Android") {
+		alert("Funkar inte på android. Hämta datorn din latkorv!");
+		history.back();
+	} if (getMobileOperatingSystem() == "iOS") {
+		alert("Funkar inte på iOS. Hämta datorn din latkorv!");
+		history.back();
+	}
 });
 
 window.addEventListener('load', 
