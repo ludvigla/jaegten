@@ -3,16 +3,17 @@
 
 require("../../src/L.Snow");
 
-window.addEventListener('DOMContentLoaded', 
-	function(e){ 
-		if (getMobileOperatingSystem() == "Android") {
+document.onreadystatechange = function(e)
+{
+    if (document.readyState === 'complete')
+    {
+        if (getMobileOperatingSystem() == "Android") {
 			show();
-			history.back();
 		} if (getMobileOperatingSystem() == "iOS") {
 			show();
-			history.back();
 		}
-}, false);
+    }
+};
 
 // (A) SHOW & HIDE SPINNER
 function show () {
