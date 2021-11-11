@@ -12,7 +12,9 @@ window.addEventListener('load',
 		} if (getMobileOperatingSystem() == "iOS") {
 			alert("Funkar inte på iOS. Hämta datorn din latkorv!");
 			history.back();
-		} 
+		} else {
+			hide()
+		}
 }, false);
 
 function show () {
