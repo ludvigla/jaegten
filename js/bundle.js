@@ -11,7 +11,9 @@ window.onload = function(e){
 	} if (getMobileOperatingSystem() == "iOS") {
 		alert("Funkar inte på iOS. Hämta datorn din latkorv!");
 		history.back();
-	} 
+	} else {
+		hide()
+	}
 }
 
 function show () {
