@@ -14,15 +14,36 @@ document.onreadystatechange = function(e)
 		} else {
 			show_wrap();
 		}
+		var marker = L.marker([59.301118616523745, 18.00657106470706], {icon:santaIcon}).addTo(lmap).on('click', function(e) {
+			var popup1 = L.popup()
+			.setLatLng([59.301118616523745, 18.00657106470706])
+			.setContent('<p>Hej Natasa och välkommen till årets julkalender!<br/><br/>Hitta ledtrådar för att svara på frågorna uppe till vänster. Om du lyckas kommer du bli belönad, men om du misslyckas kommer snöstromen att tillta.</p>')
+			.openOn(lmap);
+			popup1._closeButton.onclick = function(){
+				var popup2 = L.popup()
+				.setLatLng([59.301118616523745, 18.00657106470706])
+				.setContent('<p><b>Tips:</b> <br/><ul><li>Håll utkik efter förstoringsglas på kartan. De kan ge dig ledtrådar!</li><li>Om du hamnar på villovägar kan du flyga hem till midsommarkransen genom att trycka på den röda knappen.</li><li>Du kan också flyga till en specifik plats genom att slå in exakta koordinater och klicka på "Flyg till".</li> <li>Se upp för julbocken!!!</li></ul><br/> Lycka till :-)</p>')
+				.openOn(lmap);
+			};
+		});
+		var marker1 = L.marker([59.30868889146238, 17.97089059987154], {icon:clueIcon}).addTo(lmap).on('click', function(e) {
+			var popup1 = L.popup()
+			.setLatLng([59.30868889146238, 17.97089059987154])
+			.setContent('<p>A</p>')
+			.openOn(lmap)
+		});
+		var marker2 = L.marker([44.10122, 21.46948], {icon:clueIcon}).addTo(lmap).on('click', function(e) {
+			var popup2 = L.popup()
+			.setLatLng([44.10122, 21.46948])
+			.setContent('<p>&delta;</p>')
+			.openOn(lmap)
+		});
     }
 };
 
 // (A) SHOW & HIDE SPINNER
 function show () {
 	document.getElementById("spinner").classList.add("show");
-}
-function hide () {
-	document.getElementById("spinner").classList.remove("show");
 }
 
 // (A) SHOW wrap
@@ -69,16 +90,52 @@ points = [
 snow = L.snow(points, options).addTo(lmap);
 window.snow = snow;
 
+// Create santa claus icon
+var santaIcon = new L.Icon({
+	iconUrl: 'img/santa-claus.png',
+	iconSize: [40, 40],
+});
+
+// Create flower icon
+var bouquetIcon = new L.Icon({
+	iconUrl: 'img/flower-bouquet.png',
+	iconSize: [40, 40],
+});
+
+// flyg till
+const tillbtn = document.getElementById("flyg");
+var flygtilllat = document.getElementById('lat');
+var flygtilllng = document.getElementById('lng');
+tillbtn.addEventListener('click', function(e) {
+	lmap.flyTo(new L.LatLng(flygtilllat.value, flygtilllng.value));
+});
+
+// flyg hem
+const hembtn = document.getElementById("hem");
+hembtn.addEventListener('click', function(e) {
+	lmap.flyTo(new L.LatLng(59.301118616523745, 18.00657106470706));
+});
+
+// Create an answer button
+const btn = document.getElementById("svarknapp1");
+btn.addEventListener('click', functSubmit);
+
 function functSubmit(event) {
   var msg1 = document.getElementById("field1").value;
   var msg2 = document.getElementById("field2").value;
+  var msg3 = document.getElementById("field3").value;
+  var msg4 = document.getElementById("field4").value;
   
-  if (msg1 == "hubba") {
+  if (msg1 == "skata") {
 	  document.getElementById("field1").disabled = true; 
-  } if (msg2 == "bubba") {
+  } if (msg2 == "bäver") {
 	  document.getElementById("field2").disabled = true; 
+  } if (msg3 == "ren") {
+	  document.getElementById("field3").disabled = true; 
+  } if (msg4 == "hubba") {
+	  document.getElementById("field4").disabled = true; 
   } else {
-	  snowspeed = Math.min(snowspeed + 50, 400);
+	  snowspeed = Math.min(snowspeed + 25, 400);
 	  snow.setSpeed(snowspeed);
 	  flakesize = Math.min(flakesize + 2, 30);
 	  snow.setSize(flakesize);
@@ -86,19 +143,120 @@ function functSubmit(event) {
 	  snow.setDensity(snowdensity);
   }
 
-if (document.getElementById("field1").disabled & document.getElementById("field2").disabled) {
-	var circle = L.circle([59.301118616523745, 18.00657106470706], {
-		color: 'red',
-		fillColor: '#f03',
-		fillOpacity: 0.5,
-		radius: 500
-	}).addTo(lmap);
-}
+  if (flakesize == 26) {
+	var ghost = document.getElementsByClassName("ghost-container")[0];
+	var sound = new Audio('http://soundbible.com/mp3/Female_Scream_Horror-NeoPhyTe-138499973.mp3');
+	//var sound = new Audio("file.wav");
+	sound.load();
+	sound.play();
+	ghost.style.visibility = "visible";
+	$('.ghost').addClass("shake");
+  }
+
+	if (document.getElementById("field1").disabled & document.getElementById("field2").disabled & document.getElementById("field3").disabled & document.getElementById("field4").disabled) {
+		var marker2 = L.marker([59.30577732682212, 17.998917460640858], {icon:bouquetIcon}).addTo(lmap).on('click', function(e) {
+			var popup4 = L.popup()
+			.setLatLng([59.30577732682212, 17.998917460640858])
+			.setContent('<p>Grattis. Du har förtjänat en bukett!</p>')
+			.openOn(lmap);
+		});
+		const svarknapp1 = document.getElementById("svarknapp1");
+		svarknapp1.style.visibility = "hidden";
+	}
 
 }
 
-const btn = document.getElementById("tstbtn");
-btn.addEventListener('click', functSubmit);
+// Create gift icon
+var giftIcon = new L.Icon({
+	iconUrl: 'img/gift.png',
+	iconSize: [40, 40],
+});
+
+// Create church icon
+var churchIcon = new L.Icon({
+	iconUrl: 'img/church.png',
+	iconSize: [40, 40],
+});
+
+// Create clue icon
+var clueIcon = new L.Icon({
+	iconUrl: 'img/search.png',
+	iconSize: [30, 30],
+});
+
+// Create market icon
+var marketIcon = new L.Icon({
+	iconUrl: 'img/market.png',
+	iconSize: [35, 35],
+});
+
+// Create an answer button 2
+const btn2 = document.getElementById("svarknapp2");
+btn2.addEventListener('click', functSubmit2);
+
+function functSubmit2(event) {
+  var msg5 = document.getElementById("field5").value;
+  var msg6 = document.getElementById("field6").value;
+  var msg7 = document.getElementById("field7").value;
+  var msg8 = document.getElementById("field8").value;
+  
+  if (msg5 == "poslasticarnica") {
+	  document.getElementById("field5").disabled = true; 
+  } if (msg6 == "burek") {
+	  document.getElementById("field6").disabled = true; 
+  } if (msg7 == "palacinke") {
+	  document.getElementById("field7").disabled = true; 
+  } if (msg8 == "manasija") {
+	  document.getElementById("field8").disabled = true; 
+  } else {
+	  snowspeed = Math.min(snowspeed + 25, 400);
+	  snow.setSpeed(snowspeed);
+	  flakesize = Math.min(flakesize + 2, 30);
+	  snow.setSize(flakesize);
+	  snowdensity = Math.min(snowdensity + 0.5, 5);
+	  snow.setDensity(snowdensity);
+  }
+
+  if (flakesize == 26) {
+	var ghost = document.getElementsByClassName("ghost-container")[0];
+	var sound = new Audio('http://soundbible.com/mp3/Female_Scream_Horror-NeoPhyTe-138499973.mp3');
+	//var sound = new Audio("file.wav");
+	sound.load();
+	sound.play();
+	ghost.style.visibility = "visible";
+	$('.ghost').addClass("shake");
+  }
+
+	if (document.getElementById("field5").disabled & document.getElementById("field6").disabled & document.getElementById("field7").disabled & document.getElementById("field8").disabled) {
+		var marker = L.marker([59.30207703272717, 18.007735507305853], {icon:giftIcon}).addTo(lmap).on('click', function(e) {
+			var popup1 = L.popup()
+			.setLatLng([59.30207703272717, 18.007735507305853])
+			.setContent('<p>Hej Natasa!</p>')
+			.openOn(lmap);
+			popup1._closeButton.onclick = function(){
+				var popup2 = L.popup()
+				.setLatLng([59.30207703272717, 18.007735507305853])
+				.setContent('<p>This is a nice popup.</p>')
+				.openOn(lmap);
+			}
+		});
+		var marker2 = L.marker([59.31121015189485, 17.996444966883175], {icon:marketIcon}).addTo(lmap).on('click', function(e) {
+			var popup4 = L.popup()
+			.setLatLng([59.31121015189485, 17.996444966883175])
+			.setContent('<p>11 dec, kl 11-15.</p>')
+			.openOn(lmap);
+		});
+		var marker3 = L.marker([59.3258841023352, 18.070442056195038], {icon:churchIcon}).addTo(lmap).on('click', function(e) {
+			var popup5 = L.popup()
+			.setLatLng([59.3258841023352, 18.070442056195038])
+			.setContent('<p>13 dec, kl 20:00. Be there.</p>')
+			.openOn(lmap);
+		});
+		const svarknapp2 = document.getElementById("svarknapp2");
+		svarknapp2.style.visibility = "hidden";
+	}
+
+}
 
 /**
  * Determine the mobile operating system.

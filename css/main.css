@@ -56,3 +56,56 @@ body {
     visibility: visible;
     opacity: 1;
 }
+
+.ghost-container {
+    width: 100%;
+    position: absolute;
+    visibility: hidden;
+    background-color: black;
+}
+
+.ghost {
+    z-index: 1011;
+    display: block;
+    height: 100%;
+    position: relative;
+    margin: auto;
+}
+
+.overlay{
+    opacity:1;
+    background-color:#000;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1010;
+}
+
+.shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+  
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-12px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(13px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-20px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(20px, 0, 0);
+    }
+    
+}
+
+.left{
+    float:left;
+  }

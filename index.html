@@ -16,16 +16,41 @@
     <div id="spinner">
         <img src="img/loading.gif"/>
     </div>
+    <div class="ghost-container overlay">
+        <img class="ghost" src="img/krampus.jpg" alt="A picture of a scary ghost!">
+        <p style="text-align:center; z-index: 1020">Center this text!</p>
+    </div>
 </head>
 <body>
     <div id="wrap">
         <div id="map">
         </div>
-        <div id="overlay" style="position:absolute; top:100px; left:10px; background-color:rgba(0, 0, 0, 0); width:100px; height:100px; z-index: 1000">
-            <input id="field1" type="text" name="field1" placeholder="ledtråd 1"/>
+        <div id="overlay" style="position:absolute; top:100px; left:10px; background-color:rgba(0, 0, 0, 0); width:200px; height:100px; z-index: 1000">
+            <input id="field1" type="text" name="field1" placeholder="A"/>
             <br/>
-            <input id="field2" type="text" name="field2" placeholder="ledtråd 2"/>
-            <button class="btn" id="tstbtn">Svara</button>
+            <input id="field2" type="text" name="field2" placeholder="B"/>
+            <br/>
+            <input id="field3" type="text" name="field3" placeholder="C"/>
+            <br/>
+            <input id="field4" type="text" name="field4" placeholder="D"/>
+            <button class="btn" id="svarknapp1">Svara</button>
+            <br/>
+            <input id="field5" type="text" name="field5" placeholder="&alpha;"/>
+            <br/>
+            <input id="field6" type="text" name="field6" placeholder="&beta;"/>
+            <br/>
+            <input id="field7" type="text" name="field7" placeholder="&gamma;"/>
+            <br/>
+            <input id="field8" type="text" name="field8" placeholder="&delta;"/>
+            <button class="btn" id="svarknapp2">Svara</button>
+            <br/>
+            <br/>
+            <input class="left" id="lat" type="text" name="lat" placeholder="lat" style="width:100px;"/>
+            <input class="left" id="lng" type="text" name="lng" placeholder="lng" style="width:100px;"/>
+            <button class="btn" id="flyg" style="background-color:rgb(247, 211, 94, 0.7); width:200px">Flyg till</button>
+            <br/>
+            <br/>
+            <button class="btn" id="hem" style="background-color:rgb(247, 94, 94, 0.7); width:200px">Flyg hem</button>
         </div>
     </div>
     <script src="./js/bundle.js"></script>
