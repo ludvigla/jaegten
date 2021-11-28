@@ -138,9 +138,9 @@ function functSubmit(event) {
   var msg3 = document.getElementById("field3").value;
   var msg4 = document.getElementById("field4").value;
   
-  if (msg1 == "skata") {
+  if (msg1 == "bäver") {
 	  document.getElementById("field1").disabled = true; 
-  } if (msg2 == "bäver") {
+  } if (msg2 == "skata") {
 	  document.getElementById("field2").disabled = true; 
   } if (msg3 == "ren") {
 	  document.getElementById("field3").disabled = true; 
