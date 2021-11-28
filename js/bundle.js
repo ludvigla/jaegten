@@ -14,6 +14,7 @@ document.onreadystatechange = function(e)
 		} else {
 			show_wrap();
 		}
+
 		var marker = L.marker([59.301118616523745, 18.00657106470706], {icon:santaIcon}).addTo(lmap).on('click', function(e) {
 			var popup1 = L.popup()
 			.setLatLng([59.301118616523745, 18.00657106470706])
@@ -24,6 +25,9 @@ document.onreadystatechange = function(e)
 				.setLatLng([59.301118616523745, 18.00657106470706])
 				.setContent('<p><b>Tips:</b> <br/><ul><li>Håll utkik efter förstoringsglas på kartan. De kan ge dig ledtrådar!</li><li>Om du hamnar på villovägar kan du flyga hem till midsommarkransen genom att trycka på den röda knappen.</li><li>Du kan också flyga till en specifik plats genom att slå in exakta koordinater och klicka på "Flyg till".</li> <li>Se upp för julbocken!!!</li></ul><br/> Lycka till :-)</p>')
 				.openOn(lmap);
+				const audio = document.querySelector("audio");
+				audio.volume = 0.7;
+				audio.play();
 			};
 		});
 		var marker1 = L.marker([59.30868889146238, 17.97089059987154], {icon:clueIcon}).addTo(lmap).on('click', function(e) {
@@ -40,6 +44,7 @@ document.onreadystatechange = function(e)
 		});
     }
 };
+
 
 // (A) SHOW & HIDE SPINNER
 function show () {
@@ -59,6 +64,7 @@ var snowdensity = 1;
 // import { points } from './points';
 var osm = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	className: 'map-tiles',
 	maxZoom: 16
 }),
 center = [59.301118616523745, 18.00657106470706],
@@ -66,7 +72,7 @@ lmap = new L.Map('map', {
   layers: [osm],
   center: center,
   minZoom: 11,
-  zoom: 13,
+  zoom: 14,
   maxZoom: 16,
   zoomAnimation: true
 }),
@@ -102,6 +108,12 @@ var bouquetIcon = new L.Icon({
 	iconSize: [40, 40],
 });
 
+// Create dinner icon
+var dinnerIcon = new L.Icon({
+	iconUrl: 'img/dinner-table.png',
+	iconSize: [40, 40],
+});
+
 // flyg till
 const tillbtn = document.getElementById("flyg");
 var flygtilllat = document.getElementById('lat');
@@ -132,7 +144,7 @@ function functSubmit(event) {
 	  document.getElementById("field2").disabled = true; 
   } if (msg3 == "ren") {
 	  document.getElementById("field3").disabled = true; 
-  } if (msg4 == "hubba") {
+  } if (msg4 == "brunbjörn") {
 	  document.getElementById("field4").disabled = true; 
   } else {
 	  snowspeed = Math.min(snowspeed + 25, 400);
@@ -145,7 +157,8 @@ function functSubmit(event) {
 
   if (flakesize == 26) {
 	var ghost = document.getElementsByClassName("ghost-container")[0];
-	var sound = new Audio('http://soundbible.com/mp3/Female_Scream_Horror-NeoPhyTe-138499973.mp3');
+	var sound = new Audio('img/scream.mp3');
+	
 	//var sound = new Audio("file.wav");
 	sound.load();
 	sound.play();
@@ -157,7 +170,19 @@ function functSubmit(event) {
 		var marker2 = L.marker([59.30577732682212, 17.998917460640858], {icon:bouquetIcon}).addTo(lmap).on('click', function(e) {
 			var popup4 = L.popup()
 			.setLatLng([59.30577732682212, 17.998917460640858])
-			.setContent('<p>Grattis. Du har förtjänat en bukett!</p>')
+			.setContent('<p><3 Du har förtjänat en bukett! <3</p>')
+			.openOn(lmap);
+		});
+		var marker3 = L.marker([59.30599707479469, 17.9827554687738], {icon:dinnerIcon}).addTo(lmap).on('click', function(e) {
+			var popup5 = L.popup()
+			.setLatLng([59.30599707479469, 17.9827554687738])
+			.setContent('<p>Middag för två den 8/12.</p>')
+			.openOn(lmap);
+		});
+		var marker4 = L.marker([59.300377486212355, 17.996505611893692], {icon:clueIcon}).addTo(lmap).on('click', function(e) {
+			var popup6 = L.popup()
+			.setLatLng([59.300377486212355, 17.996505611893692])
+			.setContent('<img class="ppcont" src="img/burek.jpg" alt="Image of burek">')
 			.openOn(lmap);
 		});
 		const svarknapp1 = document.getElementById("svarknapp1");
@@ -187,6 +212,12 @@ var clueIcon = new L.Icon({
 // Create market icon
 var marketIcon = new L.Icon({
 	iconUrl: 'img/market.png',
+	iconSize: [35, 35],
+});
+
+// Create market icon
+var pretzelIcon = new L.Icon({
+	iconUrl: 'img/pretzel.png',
 	iconSize: [35, 35],
 });
 
