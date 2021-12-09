@@ -185,6 +185,12 @@ function functSubmit(event) {
 			.setContent('<img class="ppcont" src="img/burek.jpg" alt="Image of burek">')
 			.openOn(lmap);
 		});
+		var marker5 = L.marker([59.31121015189485, 17.996444966883175], {icon:marketIcon}).addTo(lmap).on('click', function(e) {
+			var popup7 = L.popup()
+			.setLatLng([59.31121015189485, 17.996444966883175])
+			.setContent('<p>11 dec, kl 11-15.</p>')
+			.openOn(lmap);
+		});
 		const svarknapp1 = document.getElementById("svarknapp1");
 		svarknapp1.style.visibility = "hidden";
 	}
@@ -270,12 +276,6 @@ function functSubmit2(event) {
 				.setContent('<p>This is a nice popup.</p>')
 				.openOn(lmap);
 			}
-		});
-		var marker2 = L.marker([59.31121015189485, 17.996444966883175], {icon:marketIcon}).addTo(lmap).on('click', function(e) {
-			var popup4 = L.popup()
-			.setLatLng([59.31121015189485, 17.996444966883175])
-			.setContent('<p>11 dec, kl 11-15.</p>')
-			.openOn(lmap);
 		});
 		var marker3 = L.marker([59.3258841023352, 18.070442056195038], {icon:churchIcon}).addTo(lmap).on('click', function(e) {
 			var popup5 = L.popup()
