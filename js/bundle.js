@@ -265,17 +265,11 @@ function functSubmit2(event) {
   }
 
 	if (document.getElementById("field5").disabled & document.getElementById("field6").disabled & document.getElementById("field7").disabled & document.getElementById("field8").disabled) {
-		var marker = L.marker([59.30207703272717, 18.007735507305853], {icon:giftIcon}).addTo(lmap).on('click', function(e) {
+		var marker = L.marker([59.33425970602617, 18.06267597453338], {icon:dinnerIcon}).addTo(lmap).on('click', function(e) {
 			var popup1 = L.popup()
-			.setLatLng([59.30207703272717, 18.007735507305853])
-			.setContent('<p>Hej Natasa!</p>')
+			.setLatLng([59.33425970602617, 18.06267597453338])
+			.setContent('<p>Date efter jobbet <3</p>')
 			.openOn(lmap);
-			popup1._closeButton.onclick = function(){
-				var popup2 = L.popup()
-				.setLatLng([59.30207703272717, 18.007735507305853])
-				.setContent('<p>This is a nice popup.</p>')
-				.openOn(lmap);
-			}
 		});
 		var marker3 = L.marker([59.3258841023352, 18.070442056195038], {icon:churchIcon}).addTo(lmap).on('click', function(e) {
 			var popup5 = L.popup()
